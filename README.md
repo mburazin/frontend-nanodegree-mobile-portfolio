@@ -94,3 +94,14 @@ Here are the related and all other optimizations I performed:
    and ultimately the framerate.
 1. Promoted the elements containing the `.mover` class (background pizzas) to separate layers to avoid repainting and
    compositing the whole page while scrolling - by using `will-change: transform` in `views/css/style.css`.
+
+### Open source projects and other apps used
+
+- https://github.com/gruntjs/grunt
+- https://github.com/gruntjs/grunt-contrib-uglify
+- https://github.com/gruntjs/grunt-contrib-cssmin
+- https://github.com/gruntjs/grunt-contrib-htmlmin
+- https://github.com/andismith/grunt-responsive-images
+- https://github.com/gruntjs/grunt-contrib-imagemin
+- https://www.npmjs.com/package/grunt-pagespeed
+- https://www.npmjs.com/package/ngrok
