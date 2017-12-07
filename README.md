@@ -94,6 +94,8 @@ Here are the related and all other optimizations I performed:
    and ultimately the framerate.
 1. Promoted the elements containing the `.mover` class (background pizzas) to separate layers to avoid repainting and
    compositing the whole page while scrolling - by using `will-change: transform` in `views/css/style.css`.
+1. Reduced the number of background pizzas which affected the scrolling performance.
+   The number of rows of pizzas is now calculated based on the viewport height.
 
 ### Open source projects and other apps used
 

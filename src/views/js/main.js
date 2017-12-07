@@ -434,7 +434,7 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var pizzas = document.querySelectorAll(".randomPizzaContainer");
+    var pizzas = document.getElementsByClassName("randomPizzaContainer");
     // calculate new width for all the pizzas
     // all pizzas are the same, so calculate new size using only the first pizza
     var dx = determineDx(pizzas[0], size);
@@ -512,13 +512,13 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   // fetch all moving pizza elements first to avoid FSL
-  var movingPizzas = document.querySelectorAll('.mover');
+  var movingPizzas = document.getElementsByClassName("mover");
   var phases = [];
 
   // and then calculate the move phase for each pizza
+  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
   for (var i = 0; i < movingPizzas.length; i++) {
     // document.body.scrollTop is no longer supported in Chrome.
-    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     var phase = Math.sin((scrollTop / 1250) + (i % 5));
     phases.push(phase);
   }
@@ -547,8 +547,10 @@ window.addEventListener('scroll', function() {
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  var rows = window.screen.height / s;
+  var noOfPizzas = rows * cols;
   var movingPizzasContainer = document.querySelector("#movingPizzas1");
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < noOfPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
